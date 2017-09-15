@@ -11,15 +11,15 @@
 
   P1DIR |= BIT0;                // Sets Pin 1.0 as an output (Red LED)
 
-  P1REN = BIT1;                 // Enables the resistor on the button
-  P1OUT = BIT1;                 // Sets the resistor as a pull-up resistor
+  P1REN = BIT3;                 // Enables the resistor on the button
+  P1OUT = BIT3;                 // Sets the resistor as a pull-up resistor
 
   while(1){                           // Creates an infinite loop to run the program
-    if((P1IN & BIT1) == 0x00){        // Runs statement if the button is pressed
+    if((P1IN & BIT3) == 0x00){        // Runs statement if the button is pressed
       __delay_cycles(5000);           // Delays the program to prevent bouncing
       select = select + 1;            // Toggles the value of the LED from 1 to 0
 
-      while((P1IN & BIT1) == 0x00);   // Extra while loop helps prevent bouncing issues
+      while((P1IN & BIT3) == 0x00);   // Extra while loop helps prevent bouncing issues
     }
 
     switch (select) {                 // Creates a switch statement to chose the LED
