@@ -17,7 +17,7 @@ int main(void){
 
 
         for(i=0; i<5000; i++) {
-            if(i % 500 == 0) {
+            if(i % 1000 == 0) {
                 P4OUT ^=(BIT7);
             }
         }
