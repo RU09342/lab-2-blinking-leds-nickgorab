@@ -11,7 +11,7 @@ int main(void){
     P1OUT = BIT0;               // Sets pin 1.0 as high, turning the LED on
 
     while(1) {                  // Creates a loop that toggles the LEDs
-        P1OUT ^= (BIT0);     	// ORs the output with itself, which will toggle the bit
+        P1OUT ^= (BIT0);      // ORs the output with itself, which will toggle the bit
              
         for(i=0; i<20000; i++);   // Adds a delay for the flashing
     }
