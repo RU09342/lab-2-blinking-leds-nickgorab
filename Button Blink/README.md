@@ -13,11 +13,11 @@ An infinite while loop was used to poll for an input from the button. Then, If s
 The button was toggled in the same fashion as the simple blink command. 
 
 ### List of button pinouts
-- F5529		PIN 1.1
-- FR2311	PIN 1.1
-- FR5994	PIN 5.6
-- FR6989	PIN 1.1
-- G2553		PIN 1.3
+- F5529   PIN 1.1
+- FR2311  PIN 1.1
+- FR5994  PIN 5.6
+- FR6989  PIN 1.1
+- G2553	  PIN 1.3
 
 ## Extra Work
 This section contains some of the extra project performed with the boards. 
