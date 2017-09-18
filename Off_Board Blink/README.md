@@ -11,7 +11,7 @@ In the beginning part of the exercise, I would say that you can use the 5V/3.3V 
 
 ## Example of embedding EveryCircuit Diagram
 A cicuit simulation for one of the LED-transistor circuits can be found
-<a href="http://everycircuit.com/circuit/5126254895562752">here - EveryCircuit</a><br>.
+<a href="http://everycircuit.com/circuit/5126254895562752">here</a><br>.
 
 
 
