@@ -1,4 +1,13 @@
-#include <msp430.h>
+/*
+ * buttonSpeedControl.c
+ *
+ *   Created on:  September 14, 2017
+ *  Last Edited:  September 18, 2017
+ *       Author:  Nick Gorab
+ *        Board:  F5529
+ */
+
+ #include <msp430.h>
 
  void main(void)
  {
@@ -49,7 +58,7 @@
 
     if (speed > 0) {          // If statement which only runs the blinking if the speed is greater than zero
 
-    P1OUT ^= BIT0;            // ORs the LED bit with itself, toggling the LED
+    P1OUT ^= BIT0;            // XORs the LED bit with itself, toggling the LED
     for(i=0; i<speed; i++);   // Adds a delay for the blinking
   }
   }

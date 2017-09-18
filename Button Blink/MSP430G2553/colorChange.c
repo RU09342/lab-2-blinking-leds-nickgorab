@@ -1,4 +1,13 @@
-#include <msp430.h>
+/*
+ * colorChange.c
+ *
+ *   Created on:  September 15, 2017
+ *  Last Edited:  September 18, 2017
+ *       Author:  Nick Gorab
+ *        Board:  G2553
+ */
+
+ #include <msp430.h>
 
  void main(void)
  {
@@ -24,12 +33,12 @@
 
     switch (LED) {          // Creates a switch statement to chose the LED   
       case 0 :  
-      P1OUT ^= (BIT0);      // Sets the LED on Pin 1.0 to blink
+      P1OUT ^= (BIT0);      // Sets the LED on Pin 1.0 to blink via XOR
       P1OUT &= ~BIT6;       // Makes sure that the LED on Pin 1.6 is off by &ing it with itself
       break;
 
       case 1  :
-      P1OUT ^= (BIT6);      // Sets the LED on Pin 1.6 to blink
+      P1OUT ^= (BIT6);      // Sets the LED on Pin 1.6 to blink vis XOR
       P1OUT &= ~BIT0;       // Makes sure that the LED on Pin 1.0 is off by &ing it with itself
       break;
 

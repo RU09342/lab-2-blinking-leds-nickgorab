@@ -1,20 +1,17 @@
 # Simple Blink
-For starters, you will need to blink one of the on-board LED's at a particular rate. It is up to you to determine what rate you want to blink it at, however it has to be symmetrical (50% Duty Cycle), meaning equal times on and off. You should attempt multiple different speeds before moving on to the next part of the lab.
+The code contained in these folders blinks the LEDs of the corresponding boards with a 50% duty cycle.
 
-## YOU NEED TO CREATE THE FOLLOWING FOLDERS
-* MSP430G2553
-* MSP430F5529
-* MSP430FR2311
-* MSP430FR5994
-* MSP430FR6989
+## Code Architecture
+This code runs with no interrupts, so the first step was do disable the watchdog timer.
 
-## How to not damage your processor
-Remember that your microprocessors are not hooked up to a nuclear power plant and they can only provide a finite amount of current and power to your attached devices. For each of your processors you should see what the maximum supply current is for the digital output pins and note it in your designs. Diodes are an interesting device where the V-I curve becomes almost a short circuit after only a couple volts. If you have a diode biased to operate at say 1 volt above its turn on voltage, you are going to be drawing quite a bit of amperage. 
+Then the pins needed to be set as an output in their high state.  For each board that we are working with in this lab, there is a LED on PIN 1.0, so this was the pin used for all boards.
 
-Before you actually begin this lab, take the time to mess around with the simulation below and understand what the importance of the series resistance is in the design. What does the resistance prevent from happening? Does having this resistance impact the performance of the LED?
+In order to establish the blinking of the lights, there is a for loop included in the code which will delay the program for a specified amount of time.
 
-<a href="http://everycircuit.com/circuit/5180823226810368">LED Current - EveryCircuit</a><br>
-<iframe width="560" height="360" src="http://everycircuit.com/embed/5180823226810368" frameborder="0"></iframe>
+Once the for loop executes, the output of the PIN is XOR'd with the state of the PIN (High or Low), which will toggle the state of the output everytime it runs through. With the lights being toggled at a constant rate, that means the duty cycle for the LED must be 50%, as required by the lab. 
+
+The only change in this code throughout the boards can be found in the main.c file for the FR5994. This board requires an extra line of code which will turn off 'High Impedance Mode' on the board, allowing the LEDs to be activated. 
+
 
 ## README
 Remember to replace this README with your README once you are ready to submit. I would recommend either making a copy of this file or taking a screen shot. There might be a copy of all of these README's in a folder on the top level depending on the exercise.

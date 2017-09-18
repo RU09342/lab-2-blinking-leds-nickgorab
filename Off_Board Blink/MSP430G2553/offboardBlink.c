@@ -1,3 +1,12 @@
+/*
+ * offboardBlink.c
+ *
+ *   Created on:  September 7, 2017
+ *  Last Edited:  September 18, 2017
+ *       Author:  Nick Gorab
+ *        Board:  G2553
+ */
+
 #include <msp430.h>    // Includes the header file for the board
 
 int main(void){
@@ -16,15 +25,15 @@ int main(void){
 
     while(1) {                  // Creates a loop that toggles the LED
 
-        P1OUT ^=(BIT4);         // Section of code that toggles the red LED
+        P1OUT ^=(BIT4);         // Section of code that toggles the red LED via XOR
 
 
         for(i=0; i<5000;i++) {      
-            if(i % 1000 == 0) {     // Blinks the yellow LED
-                P1OUT ^=(BIT5);
+            if(i % 1000 == 0) {     // Blinks the yellow LED via XOR
+                P1OUT ^= (BIT5);
             }
-            if(i % 500 == 0) {      // Blinks the red LED
-               P2OUT ^= (BIT0);
+            if(i % 500 == 0) {      // Blinks the red LED via XOR
+                P2OUT ^= (BIT0);
 
             }
             }

@@ -1,4 +1,13 @@
-#include <msp430.h>
+/*
+ * buttonSpeedControl.c
+ *
+ *   Created on:  September 15, 2017
+ *  Last Edited:  September 18, 2017
+ *       Author:  Nick Gorab
+ *        Board:  FR5994
+ */
+
+ #include <msp430.h>
 
  void main(void)
  {
