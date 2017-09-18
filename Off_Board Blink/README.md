@@ -9,9 +9,9 @@ Please be advised that you can easily damage or destroy one of the pins on the M
 ## "Do I need to use a power supply to power this thing?"
 In the beginning part of the exercise, I would say that you can use the 5V/3.3V rails built into the development board by running wires. However, I would recommend looking into how to supply the processor from something like a battery or the power supply. You might want to look into different types of regulators. For example, your circuits may be powered off of a battery that is only 1.8V, or on a system that can only supply you with 13V.
 
-##Example of embedding EveryCircuit Diagram
+## Example of embedding EveryCircuit Diagram
 <a href="http://everycircuit.com/circuit/5126254895562752">MSP430 test - EveryCircuit</a><br>
-<iframe width="560" height="360" src="http://everycircuit.com/embed/5126254895562752" frameborder="0"></iframe>
+
 
 
 ## "What about the buttons and resistors and LEDS?"
