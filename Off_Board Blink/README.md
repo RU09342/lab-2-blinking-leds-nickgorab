@@ -10,7 +10,8 @@ Please be advised that you can easily damage or destroy one of the pins on the M
 In the beginning part of the exercise, I would say that you can use the 5V/3.3V rails built into the development board by running wires. However, I would recommend looking into how to supply the processor from something like a battery or the power supply. You might want to look into different types of regulators. For example, your circuits may be powered off of a battery that is only 1.8V, or on a system that can only supply you with 13V.
 
 ## Example of embedding EveryCircuit Diagram
-<a href="http://everycircuit.com/circuit/5126254895562752">MSP430 test - EveryCircuit</a><br>
+A cicuit simulation for one of the LED-transistor circuits can be found
+<a href="http://everycircuit.com/circuit/5126254895562752">here - EveryCircuit</a><br>.
 
 
 
