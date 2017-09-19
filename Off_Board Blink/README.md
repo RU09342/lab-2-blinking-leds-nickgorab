@@ -1,31 +1,30 @@
 # Off Board Blink
-Now that we have the whole blinking LED out of the way, why don't we try making things a little more convenient by taking the G2553 off the development board and into a breadboard. In addition to the software, your README needs to also contain a picture of your circuit with at least 2 LEDs blinking all on a breadboard an without a development board. This means that you will need:
-* Proper power being supplied to the processor
-* Proper Reset Circuitry 
-* Proper Bypass and Bulk Capacitors as needed
+The offboard blink section required removing the G2553 chip form it's board and putting it on a breadboard. This required extra circuitry to power the LEDs, and resarch into the specifications and limits of the chip.
 
-Please be advised that you can easily damage or destroy one of the pins on the MSP430 by applying the wrong voltage or attempting to draw too much current from it. Really check your design before you power up to ensure you do not need request another processor.
+## Code
+The code for this section was rather straight forward. It is similar in structure to the code found in the multiple blink section, with the only difference being the pin addresses. With the chip no longer connected to the board, there are no designated pins for the LEDs, so any GPIO pin can be used. For this specific code I used pins 1.4, 1.5, and 2.0.
 
-## "Do I need to use a power supply to power this thing?"
-In the beginning part of the exercise, I would say that you can use the 5V/3.3V rails built into the development board by running wires. However, I would recommend looking into how to supply the processor from something like a battery or the power supply. You might want to look into different types of regulators. For example, your circuits may be powered off of a battery that is only 1.8V, or on a system that can only supply you with 13V.
+## Hardware
+According to the datasheet for the G2553 chip, the maximum current output at each pin was 6 mA, with a voltage of 3V. A single LED alone needs somewhere in the area of 20 mA to operate, so they can not be powered soley by the chip; external circuitry is required. 
 
-## Example of embedding EveryCircuit Diagram
+In order for the chip to operate outside of the board, power needed to be supplied to certain pins on the chip. Going off of the datasheet, Vcc needs to be applied to Pins 1 and 16 on the chip. Pin 1 is for the main chip power, while pin 16 is for the reset function. In order for the reset to function, a 10k Ohm resisor needs to places in series with Vcc.
+
+The external circuitry was done in the form of a Common Emitter BJT circuit. A model/simulation can be found in the next subsection. This circuit is able to draw from the 3.3V rail which is found on the LaunchPad Board for the necessary current. According to the simulation, the circuit requires roughly 200 uA from the chip, which is well below the threshold of 6 mA. 
+
+### EveryCircuit simulation
 A cicuit simulation for one of the LED-transistor circuits can be found
-<a href="http://everycircuit.com/circuit/5126254895562752">here</a><br>.
+<a href="http://everycircuit.com/circuit/5126254895562752">here.</a><br>
 
-
-
-## "What about the buttons and resistors and LEDS?"
-You remember those parts bins in the back of the teaching labs? They contain most everything you will need to do this portion of the lab. You should really make a effort to try and replicate what is on those development boards on the breadboard so you can begin to see what is needed to design with a microcontroller. Mess around with different color LEDS and see if they behave the same as the simple Red LEDs.
-
-# YOU NEED TO CREATE THE FOLLOWING FOLDER
-* MSP430G2553
 
 ## Extra Work
-Once you get to this point, you are pretty much set in terms of GPIO mastery getting the LEDs to blink, but there are some more exploratory tasks that you can do.
+This section contains all of the extra work performed in this section.
 
 ### Off-Board Programming 
-Do we need to keep re-inserting the MSP into the development board to program it, or is there some way to keep the chip in the circuit? For starters, try to connect the header which connects the debugger and emulator (that parts that is really dense in parts) to your chip on your board. You will need to look at the datasheets for the MSP430G2553 and the Launchpad itself to see where and how to connect to the programmer. Next, you should really look at using the JTAG connector that is also available on your board.
+In order for the board to be programmed off of the LaunchPad board, two wires neeed to be routed from the board to the breadboard. According to the datasheet, the ability for the chip to be programmed relies on two pins, TEST and RST. In order to connect these to the breadboard, the jumpers at J3 need to be removed. The wires from there are attached to the corresponding pins on the breadboard. The TEST wire goes to Pin 17 on the chip while RST goes to Pin 16.
+
+After these two connections are made, the board was able to be programmed while still on the breadboard. 
+
+(Maybe include picture)
 
 ### UART/Button Control
 Remember that stuff you did a few parts ago? Can you actually get all of that working again off of the development board? Can you control which lights are on, the speed they blink at, etc.
