@@ -6,18 +6,18 @@ In a similar fashion to the previous codes, the Watchdog Timer is disabled in th
 
 
 ### Seconday LED Pins
-- F5529 &nbsp;&nbsp;&nbsp;&nbsp; PIN 4.7
-- FR2311&nbsp;&nbsp;&nbsp; PIN 2.0
-- FR5994&nbsp;&nbsp;&nbsp; PIN 1.1
-- FR6989&nbsp;&nbsp;&nbsp; PIN 9.7
-- G2553	&nbsp;&nbsp;&nbsp;&nbsp; PIN 1.6
+- F5529: &nbsp;&nbsp;&nbsp;&nbsp; PIN 4.7
+- FR2311: &nbsp;&nbsp;&nbsp; PIN 2.0
+- FR5994: &nbsp;&nbsp;&nbsp; PIN 1.1
+- FR6989: &nbsp;&nbsp;&nbsp; PIN 9.7
+- G2553:&nbsp;&nbsp;&nbsp;&nbsp; PIN 1.6
 
 
 ## Extra Work
 This extra work sections goes into detail with controlling even more extra lights attached externally to the circuit. 
 
 ### Even More LEDs
-Since up to this point you should have hopefully noticed that you are simply just controlling each pin on your processor. So... what is keeping you from putting an LED on each pin? Can you actually control the speed of each of these LEDs?
+For this section, 5 LEDs were attached to the breadboard and they were all set to turn on at different rates using the circuitry required for the off-board LEDs. Each consecutive LED blinks twice as fast as the last one, resulting in the final code creating in a binary counter, counting from 0 to 31. 
 
 ### Patterned Lights
 If you can control a ton of LEDs, what is keeping you from having a little fun? Why not try and make something like a moving face or other moving object in lights. *CAUTION* I would only do this if you have finished the rest of the lab.
