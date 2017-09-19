@@ -1,19 +1,20 @@
 # Multiple Blink
-Now that we have blinked at least 1 LED, what about blinking multiple LEDS at the same time? The minimum that you need to develop is blinking at least two LEDs at two different rates. Although I am not going to give you a speed, you should probably pick a rate which is visible to a standard human. I really hope that you take this further and perform some of the extra work for this part of the lab exercise.
+This section includes code which uses both of the on-board LEDs, having them blink at different rates. The code for this section utilizes an If-Statement and the modulo operator in order to have two blinking LEDs.
+
+## Code Architecture
+In a similar fashion to the previous codes, the Watchdog Timer is disabled in the code, and the pins corresponding to the LEDs are set to be outputs with a high logic level. This section requires the use of multiple LEDs, so there needs to be code to initialize two of them. For almost every one of the boards, the pin number for the second LED differed, while the main LED at Pin 1.0 stayed the same. The table below shows the values of the secondary LEDs.
 
 
-# YOU NEED TO CREATE THE FOLLOWING FOLDERS
-* MSP430G2553
-* MSP430F5529
-* MSP430FR2311
-* MSP430FR5994
-* MSP430FR6989
+### Seconday LED Pins
+- F5529 &nbsp;&nbsp;&nbsp;&nbsp; PIN 4.7
+- FR2311&nbsp;&nbsp;&nbsp; PIN 2.0
+- FR5994&nbsp;&nbsp;&nbsp; PIN 1.1
+- FR6989&nbsp;&nbsp;&nbsp; PIN 9.7
+- G2553	&nbsp;&nbsp;&nbsp;&nbsp; PIN 1.6
 
-## README
-Remember to replace this README with your README once you are ready to submit. I would recommend either making a copy of this file or taking a screen shot. There might be a copy of all of these README's in a folder on the top level depending on the exercise.
 
 ## Extra Work
-When you take a look at the development boards, you are limited to what is built into the platform.
+This extra work sections goes into detail with controlling even more extra lights attached externally to the circuit. 
 
 ### Even More LEDs
 Since up to this point you should have hopefully noticed that you are simply just controlling each pin on your processor. So... what is keeping you from putting an LED on each pin? Can you actually control the speed of each of these LEDs?
