@@ -1,4 +1,13 @@
-#include <msp430.h>    // Includes the header file for the board
+/*
+ * patternedLights.c
+ *
+ *   Created on:  September 19, 2017
+ *  Last Edited:  October 7, 2017
+ *       Author:  Nick Gorab
+ *        Board:  G2553
+ */
+
+ #include <msp430.h>    // Includes the header file for the board
 
 int main(void){
 
