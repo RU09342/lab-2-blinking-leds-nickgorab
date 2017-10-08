@@ -1,26 +1,30 @@
 # Simple Blink
-The code contained in these folders blinks the LEDs of the corresponding boards with a 50% duty cycle.
+The code contained in these folders blinks the red LEDs of the provided boards with a 50% duty cycle. 
 
-## Code Architecture
-This code runs with no interrupts, so the first step was do disable the watchdog timer.
+## Dependancies 
+The simpleblink.c code depends on two separate files. The first file is the generic MSP430  header, and a config file which assigns the correct pins for each board. For more information about these files, visit their respective README files.
 
-Then the pins needed to be set as an output in their high state.  For each board that we are working with in this lab, there is a LED on PIN 1.0, so this was the pin used for all boards.
+## Code Architecture 
+This proram is simple, so the code is very straight forward. To begin, the dependencies are included in the file, using 
+```c
+#include <msp430.h>
+#include <config.h>
+```
+In the main file there is no use of interrupts, so the Watch Dog timer needed to be disabled using the line 
+```c
+WDTCTL = WDTPW+WDTHOLD;
+```
+With the FR6989, FR2311, and FR5994 needing high impedance mode to be disabled, the line 
+```c
+HIGHZ;
+```
+is used to disable it. This is a macro defined in the config.h header file, and it will disable the high impedance mode for the specified board. For the other boards, it just opeartaes as a no-op. 
 
-In order to establish the blinking of the lights, there is a for loop included in the code which will delay the program for a specified amount of time.
-
-Once the for loop executes, the output of the PIN is XOR'd with the state of the PIN (High or Low), which will toggle the state of the output everytime it runs through. With the lights being toggled at a constant rate, that means the duty cycle for the LED must be 50%, as required by the lab. 
-
-The only change in this code throughout the boards can be found in the main.c file for the FR5994. This board requires an extra line of code which will turn off 'High Impedance Mode' on the board, allowing the LEDs to be activated. 
-
-
-## README
-Remember to replace this README with your README once you are ready to submit. I would recommend either making a copy of this file or taking a screen shot. There might be a copy of all of these README's in a folder on the top level depending on the exercise.
-
-## Extra Work
-Since this is so basic, there are a few things which might be interesting to implement.
-
-### UART Control: Single Character
-For starters, it would be interesting to tie in some of the UART code that was used before into this project. You might want to have the speed of the blinking controlled by a character sent over UART. For example, 's' could be a slow setting, 'm' could be medium speed, 'f' could be fast, and 'o' could be off.
-
-### UART Control: Rate Number
-Instead of depending on a character, what if we wanted to send a blinking period in milliseconds? So instead of 's', you could send something like '100' which corresponds to a 100 millisecond delay between the time the LED turns on again. Before you decide to tackle this, I would take a look at using a logic analyzer to see exactly what your computer is sending to your microprocessor. Also remember that the code previously provided will only service the UART Buffer one character at a time.
+The main part of this code is the while loop which toggles the state of the LED. 
+```c
+while(1) {
+	L1_OUT ^= (LED1);
+	for(i=0; i<20000; i++);
+}
+```
+The while loop is infinite, so the function inside of it is always running. The for loop acts as a delay which controls the rate the LED blinks. 

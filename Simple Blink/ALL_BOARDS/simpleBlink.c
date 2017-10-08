@@ -22,6 +22,7 @@ void main(void) {
     L1_OUT = LED1;                // Sets pin 1.0 as high, turning the LED on
 
     while(1) {                    // Creates a loop that toggles the LEDs
+    	__delay_cycles(1000);	  // Adds a delay to prevent debouncing
         L1_OUT ^= (LED1);         // XORs the output with itself, which will toggle the LED
 
         for(i=0; i<20000; i++);   // Adds a delay for the blinking
