@@ -14,6 +14,9 @@ The external circuitry was done in the form of a Common Emitter BJT circuit. A m
 Below is a circuit diagram demonstrating the external circuitry required to power the LEDs. 
 ![Circuit Schematic](https://github.com/RU09342/lab-2-blinking-leds-nickgorab/blob/master/Off_Board%20Blink/MSP430G2553/OffBoard%20LED.JPG)
 
+
+Power was taken from the board and connected to the corresponding pins on the breadboard. Additionally, a bypass capacitor and bulk capacitor were included connecting from Vcc to Ground.
+
 ### EveryCircuit simulation
 A cicuit simulation for one of the LED-transistor circuits can be found
 <a href="http://everycircuit.com/circuit/5126254895562752">here.</a><br>
