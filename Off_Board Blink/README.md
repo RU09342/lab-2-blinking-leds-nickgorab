@@ -18,7 +18,7 @@ A cicuit simulation for one of the LED-transistor circuits can be found
 <a href="http://everycircuit.com/circuit/5126254895562752">here.</a><br>
 
 ### Circuit demonstration
-[[https://github.com/RU09342/lab-2-blinking-leds-nickgorab/blob/master/Off_Board%20Blink/MSP430G2553/20171007_184942.gif | alt="Logo Title Text 1"]]
+![Circuit GIF](https://github.com/RU09342/lab-2-blinking-leds-nickgorab/blob/master/Off_Board%20Blink/MSP430G2553/20171007_184942.gif)
 
 ## Extra Work
 This section contains all of the extra work performed in this section.
