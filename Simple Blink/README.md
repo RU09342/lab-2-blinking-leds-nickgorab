@@ -2,7 +2,7 @@
 The code contained in these folders blinks the red LEDs of the provided boards with a 50% duty cycle. 
 
 ## Dependancies 
-The simpleblink.c code depends on two separate files. The first file is the generic MSP430  header (`msp430.h`), and a config file (`config.h`) which assigns the correct pins for each board. For more information about these, visit their respective `README.h` files.
+The `simpleblink.c` code depends on two separate files. The first file is the generic MSP430  header (`msp430.h`), and a config file (`config.h`) which assigns the correct pins for each board. For more information about these, visit their respective `README.h` files.
 
 ## Code Architecture 
 This proram is simple, so the code is very straight forward. To begin, the dependencies are included in the file, using 

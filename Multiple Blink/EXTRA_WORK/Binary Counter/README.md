@@ -1,17 +1,10 @@
-# Button Toggle
-This code will change the color of the blinking LED on the press of a button. 
+# Binary Counter
+Utilizes 5 LEDs connected off-board to create a binary counter. 
 
+## Dependancies 
+The `binaryCounter.c` code depends on the generic MSP430  header (`msp430.h`). 
 
 ## Code Architecture 
-
-### Dependencies 
-The `buttonToggle.c` code depends on two separate files. The first file is the generic MSP430  header (`msp430.h`), and a config file (`config.h`) which assigns the correct pins for each board. For more information about these, visit their respective `README.h` files.
-
-```c
-#include <msp430.h>
-#include <config.h>
-```
-This is the section of the code which is used to include the header files.
 
 ### Functions 
 
@@ -23,14 +16,24 @@ void ledInitialize(void)
 ```
 Inside of this function the LED pins are declared as an output, and their state is set to high. This function is then called inside of the main function and reduces the amount of possibly confusing code. The lines of code used to initialize the code are found below. 
 ```c 
-L1_DIR |= LED1;
-L2_DIR |= LED2;
-L1_OUT |= LED1;
-L2_OUT |= LED2; 
+P1DIR |= BIT0;
+P1DIR |= BIT1;
+P1DIR |= BIT2;
+P1DIR |= BIT3;
+P1DIR |= BIT4;
+P1DIR |= BIT5;
+P1OUT |= BIT0;
+P1OUT |= BIT1;
+P1OUT |= BIT2;
+P1OUT |= BIT3;
+P1OUT |= BIT4;
+P1OUT |= BIT5;
 ```
 
 #### Main
-
+```c
+void main(void)
+```
 
 In the main file there is no use of interrupts, so the Watch Dog timer needed to be disabled using the line 
 ```c
@@ -48,12 +51,22 @@ L1_OUT ^= LED1;
 ```
 This XORs the bit that controls the LED state with itself, changing it everytime the code is activated. 
 
-Similarly to the button blink code there is a for loop at the bottom,
+Similarly to `multipleBlink.c`, there is a for loop ,
 ```c
-for(i=0; i<5000; i++) {
-    if(i % 1000 == 0) {
-        L2_OUT ^= (LED2);
+for(i=0; i<32000;i++) {
+    if(i % 16000 == 0) {
+        P1OUT ^=(BIT1);
     }
+    if(i % 8000 == 0) {
+       P1OUT ^= (BIT2);
+    }
+    if(i % 4000 == 0) {
+       P1OUT ^= (BIT3);
+    }
+    if(i % 2000 == 0) {
+       P1OUT ^= (BIT4);
+    }
+    i++;
 }
 ```
-which adds a delay to the button blink. This `for` loop is also utilized to blink the second LED. As the value of `i` is increasing, the modulo operator compares it with a value of `1000`. This means that the second LED should toggle 5 times for every 1 time the first LED toggles. In order to change the rate of blinking on the second LED, the modulus value can be altered. 
+which adds a delay to the button blink. This `for` loop is also utilized to blink the other LEDs. As the value of `i` is increasing, the modulo operator compares it with a values that progressively double in size. This means that the second LED should toggle 1 time for every 2 time the first LED toggles.

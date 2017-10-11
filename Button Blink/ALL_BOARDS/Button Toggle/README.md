@@ -1,16 +1,15 @@
 # Button Toggle
-This code will change the color of the blinking LED on the press of a button. 
-
-## Dependancies 
-The simpleblink.c code depends on two separate files. The first file is the generic MSP430  header, and a config file which assigns the correct pins for each board. For more information about these files, visit their respective README files.
-
+This code will toggle the state of an LED with the press of a button. 
 
 ## Code Architecture 
-This proram is simple, so the code is very straight forward. To begin, the dependencies are included in the file, using 
+### Dependencies 
+The `buttonToggle.c` code depends on two separate files. The first file is the generic MSP430  header (`msp430.h`), and a config file (`config.h`) which assigns the correct pins for each board. For more information about these, visit their respective `README.h` files.
+
 ```c
 #include <msp430.h>
 #include <config.h>
 ```
+This is the section of the code which is used to include the header files.
 
 ### Functions 
 

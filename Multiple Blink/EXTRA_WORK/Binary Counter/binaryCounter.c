@@ -9,27 +9,28 @@
 
  #include <msp430.h>    // Includes the header file for the board
 
-int main(void){
-
-    volatile int i;
-
-    WDTCTL = WDTPW+WDTHOLD;     // Stops the watchdog timer
-
+void ledInitialize(void) {
     P1DIR |= BIT0;               // Sets pin 1.0 as an output
     P1DIR |= BIT1;               // Sets pin 1.1 as an output
     P1DIR |= BIT2;               // Sets pin 1.2 as an output
     P1DIR |= BIT3;               // Sets pin 1.3 as an output
     P1DIR |= BIT4;               // Sets pin 1.4 as an output
     P1DIR |= BIT5;               // Sets pin 1.5 as an output
-
     P1OUT |= BIT0;               // Sets pin 1.0 as an output
     P1OUT |= BIT1;               // Sets pin 1.1 as an output
     P1OUT |= BIT2;               // Sets pin 1.2 as an output
     P1OUT |= BIT3;               // Sets pin 1.3 as an output
     P1OUT |= BIT4;               // Sets pin 1.4 as an output
     P1OUT |= BIT5;               // Sets pin 1.5 as an output
+}
 
+int main(void){
 
+    volatile int i;
+
+    WDTCTL = WDTPW+WDTHOLD;     // Stops the watchdog timer
+
+    ledInitialize();            // Calls function to initialize LEDS
 
     while(1) {                   // Creates a loop that toggles the LED
 
@@ -50,6 +51,7 @@ int main(void){
                P1OUT ^= (BIT4);
             }
         }
+        i++;
         }
     }
 
