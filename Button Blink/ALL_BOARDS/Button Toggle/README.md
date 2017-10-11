@@ -11,11 +11,24 @@ This proram is simple, so the code is very straight forward. To begin, the depen
 #include <msp430.h>
 #include <config.h>
 ```
+
+### Functions 
+
+#### Button Initialization
+
 In order to make the code easier to digest, a void function was used to initialize the button.
 ```c
 void button1Initialize(void)
 ```
-Inside of this function the button pin is declared an input, and the resistor is enabled and assigned to the pull up position. This function is then called inside of the main function and reduces the amount of possibly confusing code. 
+Inside of this function the button pin is declared an input, and the resistor is enabled and assigned to the pull up position. This function is then called inside of the main function and reduces the amount of possibly confusing code. The lines of code used to initialize the code are found below. 
+```c 
+B1_DIR |= ~BUTTON1;
+B1_REN |=  BUTTON1;
+B1_OUT |=  BUTTON1;
+```
+
+#### Main
+
 
 In the main file there is no use of interrupts, so the Watch Dog timer needed to be disabled using the line 
 ```c
