@@ -12,6 +12,7 @@ In order for the chip to operate outside of the board, power needed to be suppli
 The external circuitry was done in the form of a Common Emitter BJT circuit. A model/simulation can be found in the next subsection. This circuit is able to draw from the 3.3V rail which is found on the LaunchPad Board for the necessary current. According to the simulation, the circuit requires roughly 200 uA from the chip, which is well below the threshold of 6 mA. 
 
 Below is a circuit diagram demonstrating the external circuitry required to power the LEDs. 
+![Circuit Schematic](https://github.com/RU09342/lab-2-blinking-leds-nickgorab/blob/master/Off_Board%20Blink/MSP430G2553/OffBoard%20LED.JPG)
 
 ### EveryCircuit simulation
 A cicuit simulation for one of the LED-transistor circuits can be found
@@ -27,3 +28,6 @@ This section contains all of the extra work performed in this section.
 In order for the board to be programmed off of the LaunchPad board, two wires neeed to be routed from the board to the breadboard. According to the datasheet, the ability for the chip to be programmed relies on two pins, TEST and RST. In order to connect these to the breadboard, the jumpers at J3 need to be removed. The wires from there are attached to the corresponding pins on the breadboard. The TEST wire goes to Pin 17 on the chip while RST goes to Pin 16.
 
 After these two connections are made, the board was able to be programmed while still on the breadboard. 
+
+The picture below shows the correct connections being made to the board.
+![Picture of board](https://github.com/RU09342/lab-2-blinking-leds-nickgorab/blob/master/Off_Board%20Blink/MSP430G2553/P9170630.jpg)
